@@ -1,0 +1,15 @@
+[QUÉ QUIERO] Escribe la función puede_ingresar(vehiculo, ocupados, vehiculos_dentro) en Python 3.12 que decide si un vehículo puede entrar al parqueadero de ParqueFET.
+
+[PARA QUIÉN] La usará el sistema de control de acceso del campus y la mantendrán desarrolladores junior.
+
+[CONTEXTO] ParqueFET controla el parqueadero de la FET. La función debe aplicar estas reglas:
+<reglas>
+- Solo ingresan vehículos registrados a un carné vigente.
+- Capacidad: 120 carros y 300 motos.
+- Estudiantes y personal no pagan; visitantes pagan $3.000 (carro) o $1.500 (moto) por hora o fracción.
+- Un carné solo puede tener un vehículo dentro a la vez.
+- Ningún vehículo puede permanecer más de 14 horas seguidas.
+</reglas>
+
+[FORMATO] Devuelve solo el código, con type hints y docstring. La función retorna una tupla (bool, motivo): motivo explica el rechazo o es "OK".
+
