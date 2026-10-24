@@ -13,7 +13,7 @@ Revisión hecha solo leyendo los archivos de `reto3/`. Las salidas del modelo no
 | Prompt 3: tabla `Caso \| Entrada \| Resultado esperado \| Criterio que cubre` + frase de auto-verificación | Cumple | `prompt3.txt` → `salida3.md` |
 | Encadenamiento: cada salida entra en el prompt siguiente | Cumple | La salida se pegó sin cambios en el hueco «pegue aquí» |
 | Encontrar el paso del primer error, corregir ese prompt y repetir desde ahí | Cumple | `prompt2_v2.txt` → `salida2_v2.md`; `prompt3_v2.txt` → `salida3_v2.md` |
-| **Nota de qué paso se corrigió y por qué** | **Falta** | No existe todavía; el análisis está abajo, pero la nota es un entregable aparte |
+| Nota de qué paso se corrigió y por qué | Cumple | `nota_correccion.md` |
 
 Notas sobre los archivos:
 - `prompt2.txt` y `prompt3.txt` ya no son plantillas: tienen pegada la salida anterior (son el prompt exacto que se envió).
@@ -64,6 +64,5 @@ El paso 1 no cambió. La historia es correcta y no inventa nada: «Como visitant
 
 ## 4. Qué falta
 
-- **La nota** de qué paso se corrigió y por qué (obligatoria). Se puede basar en la sección 2: paso 2, por la regla invertida y la regla inventada de pagar para entrar.
 - Decidir si se hace otra iteración. Los criterios v2 todavía no son correctos del todo (criterio 1 contradictorio, criterio 4 mal aplicado) y ningún criterio calcula el cobro por fracción. Si el objetivo es una cadena correcta y no solo documentar el primer error, falta al menos una corrección más del prompt 2 y, quizá, pedir datos concretos en el prompt 3.
-- Observación para la nota: las reglas del caso no dicen cómo entra un visitante, cuando «solo ingresan vehículos registrados a un carné vigente». Esa tensión en las reglas puede explicar parte de la confusión del criterio 1.
+- Observación: las reglas del caso no dicen cómo entra un visitante, cuando «solo ingresan vehículos registrados a un carné vigente». Esa tensión en las reglas puede explicar parte de la confusión del criterio 1.

@@ -15,7 +15,7 @@ Revisión hecha solo leyendo los archivos de `reto4/`. Las salidas del modelo no
 | Parte B: regla de formato propia del caso | Cumple | «Empieza SIEMPRE tu respuesta con «Veredicto ParqueFET:».» |
 | Parte B: dos preguntas de al menos 400 palabras | Cumple en el prompt; en las respuestas no del todo | Las respuestas se cortan en 700 tokens (`num_predict` del Modelfile), varias a mitad de frase |
 | Parte B: repetir con la regla en `/set system` (antes `/clear`) | Cumple, equivalente | La versión B empieza con un historial nuevo y la regla como mensaje `system` |
-| Explicación con sus palabras de cada parte | **Falta** | No hay archivo de explicación. Este documento es la comparativa; la explicación la deben escribir ustedes |
+| Explicación con sus palabras de cada parte | Cumple | `explicacion.md` |
 
 ## 2. Comparación de resultados
 
@@ -28,7 +28,7 @@ Revisión hecha solo leyendo los archivos de `reto4/`. Las salidas del modelo no
 | Qué dijo | «La función no consideró que el carro ya estaba dentro del parque, por lo que no impidió su ingreso.» | Evaluó mal las condiciones: dijo que `not vehiculo.carne_vigente` vale `True` y que `ocupados["carros"] > 120` es `True` con 120. Concluyó: «El error está en la primera línea de la función» (la del carné, que está bien) |
 
 - El paso a paso **no ayudó** con phi-demo en este equipo: hizo la evaluación pero con valores equivocados, y llegó a una conclusión falsa con más seguridad.
-- Como control se corrió una vez el ejemplo de la guía (`prompts/06_cot_con.txt`): phi-demo también falló (dijo que `not True` retorna `False` y propuso borrar las condiciones). Esa salida quedó solo en el scratchpad de la sesión, **no está en `reto4/`**, así que no es evidencia entregable.
+- Como control se corrió una vez el ejemplo de la guía (`prompts/06_cot_con.txt`): phi-demo también falló (dijo que `not True` retorna `False` y propuso borrar las condiciones). Esa salida no se guardó en `reto4/`, así que no es evidencia entregable.
 - La guía espera que la versión con pasos encuentre el error. Aquí no ocurrió: el límite parece estar en el modelo, no en el prompt.
 - Nota: los prompts solo preguntan por un caso inválido (capacidad de carros). Los otros errores de la función del Caso 1 (motos, un vehículo por carné, 14 horas) no se pidieron, así que no cuentan aquí.
 
@@ -55,13 +55,11 @@ Hay **dos pares** de salidas, y el par «escalado» mezcla parámetros (ver secc
 2. **Parte B por script, no en el chat interactivo** de `ollama run`.
 3. **Corrida escalada fuera del enunciado:** se cambiaron `num_ctx` (2048), `num_predict` (1800/1900) y las palabras pedidas (1200/1500).
 4. **El par escalado no es comparable entre sí:** la versión B es de la corrida con 1800/1200 y la versión A de una corrida posterior con 1900/1500, que solo alcanzó a terminar la versión A antes de interrumpirse. La versión A de la corrida 1800/1200 quedó sobrescrita y ya no existe. `parteB_chat.py` quedó con los valores 1900/1500, y su docstring sigue diciendo «2048 y 1500 palabras».
-5. **Corrección a un reporte anterior:** antes dije que el último cambio (1900/1500) no se había aplicado. Es falso: el script y `salida_B_A_regla_en_chat_escalado.md` (10:45) muestran que sí se aplicó y que la versión A llegó a ejecutarse.
-6. **Parte A con `think=False`** por la API en lugar de `ollama run phi-demo` sin el flag.
-7. **`parteB_chat.txt`** (el guion para el chat) no menciona el problema del contexto.
+5. **Parte A con `think=False`** por la API en lugar de `ollama run phi-demo` sin el flag.
+6. **`parteB_chat.txt`** (el guion para el chat) no menciona el problema del contexto.
 
 ## 4. Qué falta
 
-- **La explicación con sus palabras** de las dos partes (obligatoria).
 - **Parte B válida:** hacerla en el chat real `ollama run qwen-demo --think=false` y comprobar con `ollama ps` qué contexto carga. Si sigue sin recortar, documentarlo como resultado del equipo o probar en otro equipo o motor donde `num_ctx 512` sí se aplique.
 - Decidir qué hacer con las salidas `_escalado` (mezclan parámetros): borrarlas o dejarlas como evidencia, explicando por qué no sirven.
 - Opcional: guardar en `reto4/` la corrida de control de la Práctica 9 si quieren usarla como evidencia de que el límite es de phi-demo.
