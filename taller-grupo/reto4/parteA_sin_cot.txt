@@ -1,0 +1,11 @@
+Un carro con carné vigente logró entrar a ParqueFET cuando ya había 120 carros dentro (la capacidad máxima es 120).
+¿Por qué la función puede_ingresar dejó pasar el carro? Responde en una línea.
+
+<codigo>
+def puede_ingresar(vehiculo, ocupados):
+    if not vehiculo.carne_vigente:
+        return False
+    if vehiculo.tipo == "carro" and ocupados["carros"] > 120:
+        return False
+    return True
+</codigo>

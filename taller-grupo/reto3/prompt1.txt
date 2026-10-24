@@ -1,0 +1,11 @@
+Convierte pedidos del equipo de ParqueFET (el parqueadero de la FET) en historias de usuario con el formato «Como <rol>, quiero <acción>, para <beneficio>».
+Devuelve solo la historia, en una línea.
+
+Pedido: "Que el sistema no deje entrar más carros cuando el parqueadero esté lleno"
+Historia: Como vigilante de la portería, quiero que el sistema rechace el ingreso de un carro cuando ya haya 120 carros dentro, para no dejar entrar vehículos sin cupo.
+
+Pedido: "Que no se pueda entrar con dos vehículos usando el mismo carné"
+Historia: Como coordinador de ParqueFET, quiero que el sistema rechace el ingreso de un vehículo si el carné ya tiene otro vehículo dentro, para que cada carné ocupe un solo cupo a la vez.
+
+Pedido: "Que los visitantes puedan pagar el parqueadero desde el celular antes de salir"
+Historia:

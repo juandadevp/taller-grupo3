@@ -1,0 +1,1 @@
+La función no consideró que el carro ya estaba dentro del parque, por lo que no impidió su ingreso.

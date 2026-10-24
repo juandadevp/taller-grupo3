@@ -1,0 +1,19 @@
+RETO 4 · PARTE B · LA INSTRUCCIÓN QUE SE OLVIDA (Caso 1 · ParqueFET)
+Escriba cada línea dentro del chat de Ollama, una por una.
+
+=== VERSIÓN A · la regla como mensaje del chat ===
+
+ollama run qwen-demo --think=false
+
+/set parameter num_ctx 512
+Regla: empieza SIEMPRE tu respuesta con «Veredicto ParqueFET:». ¿Entendido?
+Explica en al menos 400 palabras cómo funciona el ingreso de un vehículo al parqueadero ParqueFET de la FET: carné vigente, capacidad de 120 carros y 300 motos, y un vehículo por carné.
+Explica en al menos 400 palabras cómo se cobra en ParqueFET: estudiantes y personal no pagan; visitantes pagan $3.000 (carro) o $1.500 (moto) por hora o fracción, con un máximo de 14 horas.
+
+=== VERSIÓN B · la misma regla como system prompt ===
+
+/clear
+/set system Empieza SIEMPRE tu respuesta con «Veredicto ParqueFET:».
+(repetir las mismas dos preguntas)
+
+/bye

@@ -1,0 +1,6 @@
+Aquí tienes 4 criterios de aceptación basados en las reglas de negocio proporcionadas y la historia del usuario:
+
+1.  **Dado** que el usuario intenta realizar un pago desde su celular, **Cuando** verifica que el vehículo no está registrado en un carné vigente ni tiene más de 14 horas de permanencia consecutiva, **Entonces** el sistema le permite ingresar al parqueadero y registrar la hora de entrada.
+2.  **Dado** que el usuario es un visitante (no estudiante ni personal), **Cuando** selecciona pagar por hora o fracción, **Entonces** el sistema calcula automáticamente el monto correspondiente ($3.000 para carro o $1.500 para moto) y permite la transacción.
+3.  **Dado** que el usuario intenta ingresar con un vehículo ya registrado en otro carné activo, **Cuando** realiza la operación de pago desde su celular, **Entonces** el sistema le muestra un error indicando que solo puede tener un vehículo dentro a la vez y bloquea la entrada.
+4.  **Dado** que el usuario ha completado el pago exitosamente desde su dispositivo móvil, **Cuando** intenta ingresar al parqueadero, **Entonces** el sistema valida que la capacidad actual (120 carros o 300 motos) no esté saturada y le otorga acceso inmediato.

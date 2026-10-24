@@ -1,0 +1,1 @@
+Como visitante, quiero poder realizar el pago del parqueadero desde mi celular antes de salir, para evitar filas y gestionar mejor el tiempo de estacionamiento.
