@@ -1,4 +1,7 @@
 # Taller · Ingeniería de prompts y de contexto
+#INTEGRANTES: JUAN DAVID PLATA POLANIA
+CRISTIAN ALIRIO RUIZ SARMIENTO
+JORGE ALEJANDRO ARIAS 
 
 Diplomado en Ingeniería de Software con IA y Sistemas Agénticos · FET · Sesión 03
 
