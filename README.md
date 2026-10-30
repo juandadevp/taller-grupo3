@@ -12,6 +12,7 @@ Diplomado en Ingeniería de Software con IA y Sistemas Agénticos · FET · Sesi
 - [taller-grupo/reto2/](taller-grupo/reto2/) · System prompt del revisor y prompt injection
 - [taller-grupo/reto3/](taller-grupo/reto3/) · Del requisito a los casos de prueba
 - [taller-grupo/reto4/](taller-grupo/reto4/) · Razonar y manejar el contexto
+- [taller-grupo/bonus/](taller-grupo/bonus/) · Bonus (reto 5): JSON validado y evaluación A/B de prompts
 
 ## Nota sobre cómo se ejecutó
 - En los retos 1 y 3, y en la parte A del reto 4, se usó el script `taller-grupo/correr.py` para guardar las salidas de los prompts sin códigos de terminal.

@@ -1,0 +1,29 @@
+ANÁLISIS DEL BONUS (RETO 5) - PARQUEFET
+
+PARTE A - JSON validado
+
+Hicimos un script que lee notas del vigilante y las convierte en JSON con placa, tipo, evento y hora. Probamos con 6 notas. Las 4 que tenían todos los datos las sacó bien. Incluso cambió "5:10 pm" a "17:10" sin que se lo pidiéramos.
+
+Las otras 2 notas eran incompletas. En la que decía "un carro blanco, no alcancé a ver la placa", el modelo dejó la placa y la hora vacías (null), que es lo correcto. Pero en la que decía "la moto PQR12C pasó por la portería hace un rato", puso que era una "entrada" cuando la nota no dice si entró o salió. Se lo inventó.
+
+Lo que entendimos es que el esquema de Pydantic solo revisa que el JSON tenga la forma correcta, pero no revisa que lo que dice sea verdad. Por eso un dato inventado igual pasa la validación.
+
+
+PARTE B - Comparar prompts (v1 contra v2)
+
+Armamos 10 mensajes del parqueadero con su respuesta correcta y los clasificamos en PERMITIDO, NEGADO, COBRO o INCIDENTE. Probamos dos prompts: v1 solo pide clasificar, y v2 además explica las reglas del parqueadero y da ejemplos.
+
+Resultados:
+- qwen3.5:4b: v1 sacó 5/10 y v2 sacó 10/10.
+- qwen3.5:0.8b: v1 sacó 7/10 y v2 sacó 10/10.
+
+Los casos que fallaron en v1 y no en v2 fueron, por ejemplo, "una moto lleva 15 horas dentro" (lo clasificó como COBRO y era INCIDENTE), "visitante sale tras 2 horas y 10 minutos" (lo clasificó como NEGADO y era COBRO) y "el parqueadero de carros está lleno y llegó un estudiante" (lo clasificó como PERMITIDO y era NEGADO).
+
+Fallaban porque v1 no le dice al modelo las reglas del parqueadero (cupo, quién paga, el límite de 14 horas), entonces tenía que adivinar. En v2 le dimos esas reglas y acertó todo.
+
+
+COSAS QUE NOS LLAMARON LA ATENCIÓN
+
+- En v1 el modelo pequeño (0.8b) sacó más que el grande (4b). Creemos que pudo ser casualidad por tener solo 10 casos, así que no podemos decir que el pequeño sea mejor.
+- Con v2 los dos modelos llegaron a 10/10, así que explicarle bien la tarea al modelo pesó más que el tamaño del modelo.
+- Una limitación: las reglas que pusimos en v2 coinciden con los casos de prueba, entonces el 10/10 es un poco "fácil". Para medirlo mejor habría que probar con casos que las reglas no mencionen.
